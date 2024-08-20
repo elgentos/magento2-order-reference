@@ -1,0 +1,46 @@
+{
+    "name": "elgentos/magento2-order-reference",
+    "description": "Add an order reference field to the Hyva php cart",
+    "type": "magento2-module",
+    "license": "GPL-3.0-only",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "elgentos ecommerce solutions",
+            "email": "info@elgentos.nl"
+        }
+    ],
+    "require": {
+        "magento/framework": "*",
+        "hyva-themes/magento2-default-theme": "^1.3",
+        "magewirephp/magewire": "^1.11"
+    },
+    "require-dev": {
+        "bitexpert/phpstan-magento": "^0.30.1",
+        "elgentos/testing-suite": "*",
+        "phpstan/extension-installer": "^1.3",
+        "symfony/finder": "^6.0",
+        "youwe/coding-standard-magento2": "^2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elgentos\\OrderReference\\": "src/"
+        },
+        "files": [
+            "src/registration.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "magento/composer-dependency-version-audit-plugin": true,
+            "magento/magento-composer-installer": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://mirror.mage-os.org/"
+        }
+    ]
+}
