@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * Copyright Elgentos. All rights reserved.
+ * https://elgentos.nl/
+ */
+
+declare(strict_types=1);
+
+use Elgentos\OrderReference\Magewire\OrderReference;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Escaper $escaper */
+/** @var Template $block */
+/** @var OrderReference $magewire */
+
+?>
+<div x-data="{ open: false }">
+    <button
+        @click="open = !open"
+        class="inline-block cursor-pointer text-primary-lighter select-none whitespace-nowrap"
+        id="order-reference-toggle"
+        :aria-expanded="open"
+        type="button"
+    >
+        <span class="underline">
+            <?= $escaper->escapeHtml(__('Add Order Reference')) ?>
+        </span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="w-4 h-4 inline-block ml-2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            role="presentation"
+            focusable="false"
+        >
+            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7"/>
+            <path
+                x-show="open" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 15l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <div class="my-4 card"
+         x-show="open"
+         x-cloak
+    >
+        <div class="flex flex-col sm:flex-row gap-2 justify-center md:justify-start">
+            <div class="fieldset">
+                <label for="order_reference" class="label sr-only">
+                    <?= $escaper->escapeHtml(__('Order reference')) ?>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           class="form-input"
+                           id="order_reference"
+                           name="order_reference"
+                           wire:model.lazy="order_reference"
+                           placeholder="<?= $escaper->escapeHtmlAttr(__('Enter order reference')) ?>"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
