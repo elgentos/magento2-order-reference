@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Elgentos B.V.. All rights reserved.
+ * https://www.elgentos.nl/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <container name="cart.additional_html"  label="Additional html for in the cart summary">
+            <container name="checkout.cart.order-reference-container" label="Order reference Container" after="-">
+                <block name="checkout.cart.order-reference" template="Elgentos_OrderReference::magewire/order-reference.phtml">
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Elgentos\OrderReference\Magewire\OrderReference
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+        </container>
+
+        <move element="cart.additional_html" destination="checkout.cart.wrapper" after="cart.discount"/>
+    </body>
+</page>

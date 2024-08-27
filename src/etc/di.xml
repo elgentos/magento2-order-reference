@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Elgentos B.V.. All rights reserved.
+ * https://www.elgentos.nl/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Elgentos\OrderReference\Api\Data\OrderReferenceInterface"
+                type="Elgentos\OrderReference\Model\OrderReference"/>
+    <preference for="Elgentos\OrderReference\Api\OrderReferenceRepositoryInterface"
+                type="Elgentos\OrderReference\Model\OrderReferenceRepository"/>
+
+    <type name="Magento\Sales\Model\OrderRepository">
+        <plugin name="OrderReference"
+                type="Elgentos\OrderReference\Plugin\ApplyOrderReference"/>
+    </type>
+</config>
