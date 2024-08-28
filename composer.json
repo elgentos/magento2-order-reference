@@ -4,6 +4,7 @@
     "type": "magento2-module",
     "license": "GPL-3.0-only",
     "minimum-stability": "dev",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "elgentos ecommerce solutions",
@@ -11,6 +12,7 @@
         }
     ],
     "require": {
+        "php": "^8.2|^8.3",
         "magento/framework": "*",
         "hyva-themes/magento2-default-theme": "^1.3",
         "magewirephp/magewire": "^1.11"
@@ -33,7 +35,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://mirror.mage-os.org/"
+            "url": "https://repo.magento.com/"
         }
     ]
 }
